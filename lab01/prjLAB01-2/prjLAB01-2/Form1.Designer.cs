@@ -29,6 +29,7 @@ namespace prjLAB01_2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -309,15 +310,21 @@ namespace prjLAB01_2
             // 
             // pcbFotografia
             // 
+            this.pcbFotografia.Image = ((System.Drawing.Image)(resources.GetObject("pcbFotografia.Image")));
             this.pcbFotografia.Location = new System.Drawing.Point(96, 91);
             this.pcbFotografia.Name = "pcbFotografia";
             this.pcbFotografia.Size = new System.Drawing.Size(116, 119);
+            this.pcbFotografia.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbFotografia.TabIndex = 6;
             this.pcbFotografia.TabStop = false;
             // 
             // cmbCargo
             // 
             this.cmbCargo.FormattingEnabled = true;
+            this.cmbCargo.Items.AddRange(new object[] {
+            "Director",
+            "Empleado",
+            "Usuario"});
             this.cmbCargo.Location = new System.Drawing.Point(93, 57);
             this.cmbCargo.Name = "cmbCargo";
             this.cmbCargo.Size = new System.Drawing.Size(121, 21);
@@ -326,6 +333,10 @@ namespace prjLAB01_2
             // cmbDepartamento
             // 
             this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Items.AddRange(new object[] {
+            "Marketing",
+            "Ventas",
+            "TI"});
             this.cmbDepartamento.Location = new System.Drawing.Point(93, 30);
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(121, 21);
