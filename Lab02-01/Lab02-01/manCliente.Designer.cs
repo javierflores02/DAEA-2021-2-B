@@ -53,6 +53,12 @@ namespace Lab02_01
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombres = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.celular = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +66,13 @@ namespace Lab02_01
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.documento,
+            this.nombres,
+            this.apellidos,
+            this.telefono,
+            this.celular,
+            this.email});
             this.dataGridView1.Location = new System.Drawing.Point(12, 241);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(629, 202);
@@ -278,6 +291,36 @@ namespace Lab02_01
             this.label1.TabIndex = 0;
             this.label1.Text = "Documento";
             // 
+            // documento
+            // 
+            this.documento.HeaderText = "Documento";
+            this.documento.Name = "documento";
+            // 
+            // nombres
+            // 
+            this.nombres.HeaderText = "Nombres";
+            this.nombres.Name = "nombres";
+            // 
+            // apellidos
+            // 
+            this.apellidos.HeaderText = "Apellidos";
+            this.apellidos.Name = "apellidos";
+            // 
+            // telefono
+            // 
+            this.telefono.HeaderText = "Teléfono";
+            this.telefono.Name = "telefono";
+            // 
+            // celular
+            // 
+            this.celular.HeaderText = "Celular";
+            this.celular.Name = "celular";
+            // 
+            // email
+            // 
+            this.email.HeaderText = "Email";
+            this.email.Name = "email";
+            // 
             // manCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,5 +367,11 @@ namespace Lab02_01
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombres;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn celular;
+        private System.Windows.Forms.DataGridViewTextBoxColumn email;
     }
 }
