@@ -42,6 +42,7 @@ namespace lab03
                 conn = new SqlConnection(str);
                 conn.Open();
                 MessageBox.Show("Conectado satisfactoriamente");
+                textBox1.Text = str;
                 btnDesconectar.Enabled = true;
             }
             catch(Exception ex)
