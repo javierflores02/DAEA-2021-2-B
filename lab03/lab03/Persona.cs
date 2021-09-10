@@ -27,21 +27,24 @@ namespace lab03
 
         private void btnListar_Click(object sender, EventArgs e)
         {
-            if (conn.State == ConnectionState.Open)
+            if (conn != null)
             {
-                String sql = "SELECT * FROM tbl_usuario";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                SqlDataReader reader = cmd.ExecuteReader();
+                if (conn.State == ConnectionState.Open)
+                {
+                    String sql = "SELECT * FROM tbl_usuario";
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-                dgvListado.DataSource = dt;
-                dgvListado.Refresh();
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    dgvListado.DataSource = dt;
+                    dgvListado.Refresh();
+                }
+                else
+                    MessageBox.Show("La conexion esta cerrada");
             }
             else
-            {
-                MessageBox.Show("La conexion esta cerrada");
-            }
+                MessageBox.Show("Error de conexión: Aún no se estableció la conexión");
         }
     }
 }

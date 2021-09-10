@@ -55,12 +55,19 @@ namespace lab03
         {
             try
             {
-                if (conn.State == ConnectionState.Open)
+                if (conn?.State == ConnectionState.Open)
                     MessageBox.Show("Estado del servidor: " + conn.State +
                         "\nVersion del Servidor: " + conn.ServerVersion +
                         "\nBase de Datos: " + conn.Database);
                 else
-                    MessageBox.Show("Estado del Servidor: " + conn.State);
+                {
+                    String msg = "";
+                    if (conn != null)
+                        msg = conn.State.ToString();
+                    else
+                        msg = "Aún no se estableció la conexión";
+                    MessageBox.Show("Estado del Servidor: " + msg);
+                }
             }
             catch (Exception ex)
             {
