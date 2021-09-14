@@ -90,7 +90,7 @@ namespace lab03
             this.txtBaseDatos.Name = "txtBaseDatos";
             this.txtBaseDatos.Size = new System.Drawing.Size(211, 23);
             this.txtBaseDatos.TabIndex = 5;
-            this.txtBaseDatos.Text = "db_lab03";
+            this.txtBaseDatos.Text = "School";
             // 
             // label3
             // 
