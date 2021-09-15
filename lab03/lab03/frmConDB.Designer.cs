@@ -43,6 +43,7 @@ namespace lab03
             this.btnDesconectar = new System.Windows.Forms.Button();
             this.btnPersona = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnCursos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -172,7 +173,7 @@ namespace lab03
             // btnPersona
             // 
             this.btnPersona.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPersona.Location = new System.Drawing.Point(194, 217);
+            this.btnPersona.Location = new System.Drawing.Point(152, 213);
             this.btnPersona.Name = "btnPersona";
             this.btnPersona.Size = new System.Drawing.Size(75, 23);
             this.btnPersona.TabIndex = 12;
@@ -187,11 +188,23 @@ namespace lab03
             this.textBox1.Size = new System.Drawing.Size(445, 20);
             this.textBox1.TabIndex = 13;
             // 
+            // btnCursos
+            // 
+            this.btnCursos.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCursos.Location = new System.Drawing.Point(233, 213);
+            this.btnCursos.Name = "btnCursos";
+            this.btnCursos.Size = new System.Drawing.Size(75, 23);
+            this.btnCursos.TabIndex = 14;
+            this.btnCursos.Text = "Cursos";
+            this.btnCursos.UseVisualStyleBackColor = true;
+            this.btnCursos.Click += new System.EventHandler(this.btnCursos_Click);
+            // 
             // frmConDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(487, 327);
+            this.Controls.Add(this.btnCursos);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnPersona);
             this.Controls.Add(this.btnDesconectar);
@@ -230,6 +243,7 @@ namespace lab03
         private System.Windows.Forms.Button btnDesconectar;
         private System.Windows.Forms.Button btnPersona;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnCursos;
     }
 }
 

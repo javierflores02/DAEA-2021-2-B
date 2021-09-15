@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Curso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Curso.Designer.cs">
+      <DependentUpon>Curso.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConDB.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Curso.resx">
+      <DependentUpon>Curso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConDB.resx">
       <DependentUpon>frmConDB.cs</DependentUpon>
     </EmbeddedResource>
