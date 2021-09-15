@@ -21,7 +21,8 @@ namespace lab03
 
         private void frmConDB_Load(object sender, EventArgs e)
         {
-
+            btnCursos.Enabled = false;
+            btnPersona.Enabled = false;
         }
 
         private void btnConectar_Click(object sender, EventArgs e)
@@ -44,6 +45,8 @@ namespace lab03
                 MessageBox.Show("Conectado satisfactoriamente");
                 textBox1.Text = str;
                 btnDesconectar.Enabled = true;
+                btnCursos.Enabled = true;
+                btnPersona.Enabled = true;
             }
             catch(Exception ex)
             {
@@ -85,6 +88,8 @@ namespace lab03
                     conn.Close();
                     MessageBox.Show("Conexion cerrada satisfactoriamente");
                     btnDesconectar.Enabled = false;
+                    btnCursos.Enabled = false;
+                    btnPersona.Enabled = false;
                 }
                 else
                     MessageBox.Show("La conexion ya esta cerrada");
