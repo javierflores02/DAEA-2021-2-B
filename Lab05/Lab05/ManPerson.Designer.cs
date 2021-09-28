@@ -45,6 +45,9 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvListado = new System.Windows.Forms.DataGridView();
+            this.btnNombre = new System.Windows.Forms.Button();
+            this.btnApellidos = new System.Windows.Forms.Button();
+            this.btnContrato = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +74,7 @@
             // txtEnrollmentDate
             // 
             this.txtEnrollmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtEnrollmentDate.Location = new System.Drawing.Point(211, 202);
+            this.txtEnrollmentDate.Location = new System.Drawing.Point(211, 193);
             this.txtEnrollmentDate.Name = "txtEnrollmentDate";
             this.txtEnrollmentDate.Size = new System.Drawing.Size(115, 22);
             this.txtEnrollmentDate.TabIndex = 9;
@@ -79,21 +82,21 @@
             // txtHireDate
             // 
             this.txtHireDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtHireDate.Location = new System.Drawing.Point(36, 202);
+            this.txtHireDate.Location = new System.Drawing.Point(35, 193);
             this.txtHireDate.Name = "txtHireDate";
             this.txtHireDate.Size = new System.Drawing.Size(115, 22);
             this.txtHireDate.TabIndex = 8;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(211, 129);
+            this.txtLastName.Location = new System.Drawing.Point(211, 120);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(137, 22);
             this.txtLastName.TabIndex = 7;
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(35, 129);
+            this.txtFirstName.Location = new System.Drawing.Point(35, 120);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(149, 22);
             this.txtFirstName.TabIndex = 6;
@@ -152,7 +155,7 @@
             // 
             // btnListar
             // 
-            this.btnListar.Location = new System.Drawing.Point(420, 37);
+            this.btnListar.Location = new System.Drawing.Point(420, 56);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(105, 35);
             this.btnListar.TabIndex = 1;
@@ -162,16 +165,17 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(420, 78);
+            this.btnBuscar.Location = new System.Drawing.Point(17, 272);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(105, 35);
+            this.btnBuscar.Size = new System.Drawing.Size(119, 35);
             this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Buscar Codigo";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnInsertar
             // 
-            this.btnInsertar.Location = new System.Drawing.Point(420, 119);
+            this.btnInsertar.Location = new System.Drawing.Point(420, 96);
             this.btnInsertar.Name = "btnInsertar";
             this.btnInsertar.Size = new System.Drawing.Size(105, 35);
             this.btnInsertar.TabIndex = 3;
@@ -181,7 +185,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(420, 160);
+            this.btnModificar.Location = new System.Drawing.Point(420, 137);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(105, 35);
             this.btnModificar.TabIndex = 4;
@@ -191,7 +195,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(420, 201);
+            this.btnEliminar.Location = new System.Drawing.Point(420, 178);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(105, 35);
             this.btnEliminar.TabIndex = 5;
@@ -202,7 +206,7 @@
             // dgvListado
             // 
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListado.Location = new System.Drawing.Point(9, 274);
+            this.dgvListado.Location = new System.Drawing.Point(7, 338);
             this.dgvListado.Name = "dgvListado";
             this.dgvListado.ReadOnly = true;
             this.dgvListado.RowHeadersVisible = false;
@@ -213,11 +217,44 @@
             this.dgvListado.TabIndex = 6;
             this.dgvListado.SelectionChanged += new System.EventHandler(this.dgvListado_SelectionChanged);
             // 
+            // btnNombre
+            // 
+            this.btnNombre.Location = new System.Drawing.Point(142, 272);
+            this.btnNombre.Name = "btnNombre";
+            this.btnNombre.Size = new System.Drawing.Size(119, 35);
+            this.btnNombre.TabIndex = 7;
+            this.btnNombre.Text = "Buscar Nombre";
+            this.btnNombre.UseVisualStyleBackColor = true;
+            this.btnNombre.Click += new System.EventHandler(this.btnNombre_Click);
+            // 
+            // btnApellidos
+            // 
+            this.btnApellidos.Location = new System.Drawing.Point(267, 272);
+            this.btnApellidos.Name = "btnApellidos";
+            this.btnApellidos.Size = new System.Drawing.Size(133, 35);
+            this.btnApellidos.TabIndex = 8;
+            this.btnApellidos.Text = "Buscar Apellidos";
+            this.btnApellidos.UseVisualStyleBackColor = true;
+            this.btnApellidos.Click += new System.EventHandler(this.btnApellidos_Click);
+            // 
+            // btnContrato
+            // 
+            this.btnContrato.Location = new System.Drawing.Point(406, 272);
+            this.btnContrato.Name = "btnContrato";
+            this.btnContrato.Size = new System.Drawing.Size(133, 35);
+            this.btnContrato.TabIndex = 9;
+            this.btnContrato.Text = "Buscar Contrato";
+            this.btnContrato.UseVisualStyleBackColor = true;
+            this.btnContrato.Click += new System.EventHandler(this.btnContrato_Click);
+            // 
             // ManPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 525);
+            this.ClientSize = new System.Drawing.Size(559, 584);
+            this.Controls.Add(this.btnContrato);
+            this.Controls.Add(this.btnApellidos);
+            this.Controls.Add(this.btnNombre);
             this.Controls.Add(this.dgvListado);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
@@ -254,5 +291,8 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvListado;
+        private System.Windows.Forms.Button btnNombre;
+        private System.Windows.Forms.Button btnApellidos;
+        private System.Windows.Forms.Button btnContrato;
     }
 }
