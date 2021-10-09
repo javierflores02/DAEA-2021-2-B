@@ -169,5 +169,12 @@ namespace lab06
             dv.RowFilter = "HireDate = '" + txtHireDate.Text + "'";
             dgvListado.DataSource = dv;
         }
+
+        private void btnOrdenarApell_Click(object sender, EventArgs e)
+        {
+            DataView dv = new DataView(tablePerson);
+            dv.Sort = "LastName ASC";
+            dgvListado.DataSource = dv;
+        }
     }
 }
