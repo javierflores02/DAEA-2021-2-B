@@ -25,5 +25,28 @@ namespace Datos
             return dt;
         }
 
+        public DataTable GetbyFirstname(String nombre)
+        {
+            DataTable dt = new DataTable();
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "BuscarPersonaNombre";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = con;
+
+            SqlParameter param = new SqlParameter();
+            param.ParameterName = "@FirstName";
+            param.SqlDbType = SqlDbType.NVarChar;
+            param.Value = nombre;
+
+            cmd.Parameters.Add(param);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+            dt.Load(reader);
+
+            con.Close();
+            return dt;
+        }
     }
 }

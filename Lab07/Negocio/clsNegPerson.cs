@@ -16,5 +16,10 @@ namespace Negocio
         {
             return daoPerson.GetAll();
         }
+
+        public DataTable GetbyFirstname(String nombre)
+        {
+            return daoPerson.GetbyFirstname(nombre);
+        }
     }
 }
