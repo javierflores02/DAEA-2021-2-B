@@ -17,13 +17,13 @@ namespace lab10
 
             //Creacion de la consulta
             var query = from p in context.Products
-                        where p.Categories.CategoryName == "Beverages"
+                        where p.UnitPrice < 20
                         select p;
 
             //Ejecución de la consulta
             foreach (var prod in query)
             {
-                Console.WriteLine("ID={0} \t Name={1}", prod.ProductID, prod.ProductName);
+                Console.WriteLine("ID={0} \t Price={1} \t Name={2} ", prod.ProductID, prod.UnitPrice, prod.ProductName);
             }
 
             Console.ReadKey();
