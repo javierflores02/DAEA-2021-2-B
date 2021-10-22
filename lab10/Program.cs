@@ -11,6 +11,25 @@ namespace lab10
     {
         static void Main(string[] args)
         {
+            nuevaCategoria();
+        }
+
+        private static void nuevaCategoria()
+        {
+            //origen de datos
+            NorthwndDataContext context = new NorthwndDataContext();
+
+            Categories c = new Categories();
+            c.CategoryName = "Nueva Categoria";
+            c.Description = "Nueva Categoria creada con Linq";
+
+            //ejecutar
+            context.Categories.InsertOnSubmit(c);
+            context.SubmitChanges();
+        }
+
+        private static void nuevoProducto()
+        {
             //origen de datos
             NorthwndDataContext context = new NorthwndDataContext();
 
