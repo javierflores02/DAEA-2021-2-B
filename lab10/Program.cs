@@ -11,7 +11,24 @@ namespace lab10
     {
         static void Main(string[] args)
         {
-            nuevaCategoria();
+            modificarProducto();
+        }
+
+        private static void modificarProducto()
+        {
+            //origen de datos
+            NorthwndDataContext context = new NorthwndDataContext();
+
+            var product = (from p in context.Products
+                           where p.ProductName == "Tofu"
+                           select p).FirstOrDefault();
+
+            product.UnitPrice = 100;
+            product.UnitsInStock = 15;
+            product.Discontinued = true;
+
+            //ejecutar
+            context.SubmitChanges();
         }
 
         private static void nuevaCategoria()
