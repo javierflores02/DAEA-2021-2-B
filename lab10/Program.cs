@@ -11,7 +11,7 @@ namespace lab10
     {
         static void Main(string[] args)
         {
-            eliminarProducto();
+            queriesProductsSuppliers();
         }
         private static void eliminarProducto()
         {
@@ -85,7 +85,7 @@ namespace lab10
             }
         }
 
-        private static void queries()
+        private static void queriesProductsCategories()
         {
             //Origen de datos
             NorthwndDataContext context = new NorthwndDataContext();
@@ -134,6 +134,28 @@ namespace lab10
             readQuery(query_a, "Consulta para obtener los productos que empiezan con la letra a");
             readQuery(query_sin_stock, "Consulta para obtener los productos sin  stock");
             readQuery(query_descontonuados, "Consulta para obtener los productos descontonuados");
+
+            Console.ReadKey();
+        }
+
+        private static void queriesProductsSuppliers()
+        {
+            //Origen de datos
+            NorthwndDataContext context = new NorthwndDataContext();
+
+            //Consulta para obtener los productos con la categoria dairy products
+            var query_dairy = from p in context.Products
+                        where p.Categories.CategoryName == "Dairy Products"
+                        select p;
+
+            //Consulta para obtener los productos con proveedores ubicados en usa
+            var query_usa = from p in context.Products
+                        where p.Suppliers.Country == "USA"
+                        select p;
+
+            //ejecucion de la consulta
+            readQuery(query_dairy, "Consulta para obtener los productos cuyo nombre incluye la palabra queso");
+            readQuery(query_usa, "Consulta para obtener los productos cuya presentacion sea paquetes (pkg o pkgs)");
 
             Console.ReadKey();
         }
