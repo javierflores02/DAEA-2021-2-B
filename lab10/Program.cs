@@ -11,7 +11,21 @@ namespace lab10
     {
         static void Main(string[] args)
         {
-            modificarProducto();
+            eliminarProducto();
+        }
+        private static void eliminarProducto()
+        {
+            //origen de datos
+            NorthwndDataContext context = new NorthwndDataContext();
+
+            var product = (from p in context.Products
+                           where p.ProductID == 78
+                           select p).FirstOrDefault();
+
+
+            //ejecutar
+            context.Products.DeleteOnSubmit(product);
+            context.SubmitChanges();
         }
 
         private static void modificarProducto()
