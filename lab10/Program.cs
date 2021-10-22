@@ -11,6 +11,32 @@ namespace lab10
     {
         static void Main(string[] args)
         {
+            //origen de datos
+            NorthwndDataContext context = new NorthwndDataContext();
+
+            Products p = new Products();
+            p.ProductName = "Peruvian Coffe";
+            p.SupplierID = 20;
+            p.CategoryID = 1;
+            p.QuantityPerUnit = "10 pkgs";
+            p.UnitPrice = 25;
+
+            //ejecutar
+            context.Products.InsertOnSubmit(p);
+            context.SubmitChanges();
+        }
+
+        private static void readQuery(IQueryable<dynamic> query, String msg)
+        {
+            Console.WriteLine("\n" + msg);
+            foreach (var prod in query)
+            {
+                Console.WriteLine("ID={0} \t Name={1} ", prod.ProductID, prod.ProductName);
+            }
+        }
+
+        private static void queries()
+        {
             //Origen de datos
             NorthwndDataContext context = new NorthwndDataContext();
 
@@ -60,16 +86,6 @@ namespace lab10
             readQuery(query_descontonuados, "Consulta para obtener los productos descontonuados");
 
             Console.ReadKey();
-
-        }
-
-        private static void readQuery(IQueryable<dynamic> query, String msg)
-        {
-            Console.WriteLine("\n" + msg);
-            foreach (var prod in query)
-            {
-                Console.WriteLine("ID={0} \t Name={1} ", prod.ProductID, prod.ProductName);
-            }
         }
     }
 }
