@@ -133,16 +133,30 @@ namespace Lab11
             //}
 
             // Ejercicio k -> 10
-            using (AdventureWorksEntities AWEntities = new AdventureWorksEntities())
+            //using (AdventureWorksEntities AWEntities = new AdventureWorksEntities())
+            //{
+            //    int?[] productModelIds = { 19, 26, 118 };
+            //    var products = from p in AWEntities.Product
+            //                   where productModelIds.Contains(p.ProductModelID)
+            //                   select p;
+            //    foreach (var product in products)
+            //    {
+            //        Console.WriteLine("{0}: {1}",
+            //            product.ProductModelID, product.ProductID);
+            //    }
+            //    Console.ReadKey();
+            //}
+
+            // Ejercicio k -> 12
+            using (AdventureWorksEntities context = new AdventureWorksEntities())
             {
-                int?[] productModelIds = { 19, 26, 118 };
-                var products = from p in AWEntities.Product
-                               where productModelIds.Contains(p.ProductModelID)
-                               select p;
-                foreach (var product in products)
+                IQueryable<Decimal> sortedPrices = from p in context.Product
+                                                   orderby p.ListPrice descending
+                                                   select p.ListPrice;
+                Console.WriteLine("Lista de precios desde el más alto al más bajo:");
+                foreach (Decimal price in sortedPrices)
                 {
-                    Console.WriteLine("{0}: {1}",
-                        product.ProductModelID, product.ProductID);
+                    Console.WriteLine(price);
                 }
                 Console.ReadKey();
             }
