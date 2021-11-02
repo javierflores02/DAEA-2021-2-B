@@ -148,18 +148,56 @@ namespace Lab11
             //}
 
             // Ejercicio k -> 12
+            //using (AdventureWorksEntities context = new AdventureWorksEntities())
+            //{
+            //    IQueryable<Decimal> sortedPrices = from p in context.Product
+            //                                       orderby p.ListPrice descending
+            //                                       select p.ListPrice;
+            //    Console.WriteLine("Lista de precios desde el más alto al más bajo:");
+            //    foreach (Decimal price in sortedPrices)
+            //    {
+            //        Console.WriteLine(price);
+            //    }
+            //    Console.ReadKey();
+            //}
+
+            // Ejercicio k -> 14
             using (AdventureWorksEntities context = new AdventureWorksEntities())
             {
-                IQueryable<Decimal> sortedPrices = from p in context.Product
-                                                   orderby p.ListPrice descending
-                                                   select p.ListPrice;
-                Console.WriteLine("Lista de precios desde el más alto al más bajo:");
-                foreach (Decimal price in sortedPrices)
+                var products = context.Product;
+                var query = from product in products
+                            group product by product.Style into g
+                            select new
+                            {
+                                Style = g.Key,
+                                AverageListPrice = g.Average(product => product.ListPrice)
+                            };
+                foreach (var product in query)
                 {
-                    Console.WriteLine(price);
+                    Console.WriteLine("Estilo: {0} Precio promedio: {1}",
+                        product.Style, product.AverageListPrice);
                 }
                 Console.ReadKey();
             }
+
+            // Ejercicio k -> 15
+            /*using (AdventureWorksEntities context = new AdventureWorksEntities())
+            {
+                var products = context.Product;
+                var query = from product in products
+                            group product by product.Color into g
+                            select new
+                            {
+                                Color = g.Key,
+                                ProductCount = g.Count()
+                            };
+                foreach (var product in query)
+                {
+                    Console.WriteLine("Color = {0} \t Cantidad = {1}",
+                        product.Color, product.ProductCount);
+                }
+                Console.ReadKey();
+            }*/
         }
     }
 }
