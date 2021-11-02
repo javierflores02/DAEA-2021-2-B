@@ -72,23 +72,80 @@ namespace Lab11
             //}
 
             // Ejercicio k -> 5
-            using (AdventureWorksEntities context = new AdventureWorksEntities())
+            //using (AdventureWorksEntities context = new AdventureWorksEntities())
+            //{
+            //    var query = from product in context.Product
+            //                select new
+            //                {
+            //                    ProductId = product.ProductID,
+            //                    ProductName = product.Name
+            //                };
+            //    Console.WriteLine("Información de productos:");
+            //    foreach (var productInfo in query)
+            //    {
+            //        Console.WriteLine("Product Id: {0} Product Name: {1}",
+            //            productInfo.ProductId, productInfo.ProductName);
+            //    }
+            //    Console.ReadKey();
+            //}
+
+            // Ejercicio k -> 8
+            //int orderQtyMin = 2;
+            //int orderQtyMax = 6;
+            //using (AdventureWorksEntities context = new AdventureWorksEntities())
+            //{
+            //    var query = from order in context.SalesOrderDetail
+            //                where order.OrderQty > orderQtyMin
+            //                && order.OrderQty < orderQtyMax
+            //                select new
+            //                {
+            //                    SalesOrderID = order.SalesOrderID,
+            //                    OrderQty = order.OrderQty
+            //                };
+            //    foreach (var order in query)
+            //    {
+            //        Console.WriteLine("Order ID: {0} Order quantity: {1}",
+            //            order.SalesOrderID, order.OrderQty);
+            //    }
+            //}
+            //Console.ReadKey();
+
+            // Ejercicio k -> 9
+            //String color = "Red";
+            //using (AdventureWorksEntities context = new AdventureWorksEntities())
+            //{
+            //    var query = from product in context.Product
+            //                where product.Color == color
+            //                select new
+            //                {
+            //                    Name = product.Name,
+            //                    ProductNumber = product.ProductNumber,
+            //                    ListPrice = product.ListPrice
+            //                };
+            //    foreach (var product in query)
+            //    {
+            //        Console.WriteLine("Name: {0}", product.Name);
+            //        Console.WriteLine("Product number: {0}", product.ProductNumber);
+            //        Console.WriteLine("List price: ${0}", product.ListPrice);
+            //        Console.WriteLine("");
+            //    }
+            //    Console.ReadKey();
+            //}
+
+            // Ejercicio k -> 10
+            using (AdventureWorksEntities AWEntities = new AdventureWorksEntities())
             {
-                var query = from product in context.Product
-                            select new
-                            {
-                                ProductId = product.ProductID,
-                                ProductName = product.Name
-                            };
-                Console.WriteLine("Información de productos:");
-                foreach (var productInfo in query)
+                int?[] productModelIds = { 19, 26, 118 };
+                var products = from p in AWEntities.Product
+                               where productModelIds.Contains(p.ProductModelID)
+                               select p;
+                foreach (var product in products)
                 {
-                    Console.WriteLine("Product Id: {0} Product Name: {1}",
-                        productInfo.ProductId, productInfo.ProductName);
+                    Console.WriteLine("{0}: {1}",
+                        product.ProductModelID, product.ProductID);
                 }
                 Console.ReadKey();
             }
-
         }
     }
 }
