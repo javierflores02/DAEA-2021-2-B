@@ -15,7 +15,7 @@ namespace Lab13.Controllers
             return View();
         }
 
-        public ActionResult Listar()
+        public ActionResult Listar(string Busqueda)
         {
             List<Persona> personas = new List<Persona>();
             personas.Add(new Persona
@@ -45,6 +45,10 @@ namespace Lab13.Controllers
                 FechaNacimiento = Convert.ToDateTime("1982-02-14"),
                 Email = "carlos@mail.com"
             });
+            if (!String.IsNullOrEmpty(Busqueda))
+            {
+                personas = personas.Where(s => s.Nombre.ToLower().Contains(Busqueda.ToLower()) || s.Apellido.ToLower().Contains(Busqueda.ToLower())).ToList();
+            }
             return View(personas);
 
         }
