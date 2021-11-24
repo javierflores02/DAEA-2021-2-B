@@ -1,18 +1,20 @@
 ﻿@model IEnumerable<Lab14.Products>
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Index";
 }
 
-<h2>Details</h2>
-
+<h2>Index</h2>
 <p>
-    @Html.ActionLink("Crear nueva categoria", "Create")
+    @Html.ActionLink("Nueva Categoria", "Create", "Categories", null, null)
+    @Html.ActionLink("Nuevo Producto", "Create", "Products", null, null)
 </p>
-
-<table class="table table-striped">
+<table class="table table-dark table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ProductID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProductName)
@@ -33,21 +35,20 @@
             @Html.DisplayNameFor(model => model.UnitsInStock)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitsOnOrder)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ReorderLevel)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Discontinued)
         </th>
-        <th></th>
+        <th>
+
+        </th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProductName)
@@ -68,18 +69,13 @@
                 @Html.DisplayFor(modelItem => item.UnitsInStock)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UnitsOnOrder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReorderLevel)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Discontinued)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", "Products", new { id = item.ProductID }, null)
-                @Html.ActionLink("Delete", "Delete", "Products", new { id = item.ProductID }, null)
+                @Html.ActionLink("Editar", "Edit", new { id = item.CategoryID }) |
+                @Html.ActionLink("Borrar", "Delete", new { id = item.CategoryID })
             </td>
         </tr>
     }
+
 </table>
