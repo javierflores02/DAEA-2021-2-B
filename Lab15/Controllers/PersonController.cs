@@ -47,5 +47,25 @@ namespace Lab15.Controllers
             ViewBag.ReportViewer = rptviewer;
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Reporte(string FirstName)
+        {
+            List<Person> listado = new List<Person>();
+            listado = (from p in Contexto.Person
+                       where p.FirstName.Contains(FirstName)
+                       select p).ToList();
+
+            var rptviewer = new ReportViewer();
+            rptviewer.ProcessingMode = ProcessingMode.Local;
+            rptviewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) +
+                @"Reporte.rdlc";
+            ReportDataSource rptdatasurce = new ReportDataSource("dsPersona", listado);
+            rptviewer.LocalReport.DataSources.Add(rptdatasurce);
+            rptviewer.SizeToReportContent = true;
+
+            ViewBag.ReportViewer = rptviewer;
+            return View();
+        }
     }
 }
