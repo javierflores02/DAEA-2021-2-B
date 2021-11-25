@@ -38,7 +38,7 @@ namespace Lab15.Controllers
 
             var rptviewer = new ReportViewer();
             rptviewer.ProcessingMode = ProcessingMode.Local;
-            rptviewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reporte.rdlc";
+            rptviewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) + @"Report.rdlc";
 
             ReportDataSource rptdatasource = new ReportDataSource("dsPersona", listado);
             rptviewer.LocalReport.DataSources.Add(rptdatasource);
@@ -59,7 +59,7 @@ namespace Lab15.Controllers
             var rptviewer = new ReportViewer();
             rptviewer.ProcessingMode = ProcessingMode.Local;
             rptviewer.LocalReport.ReportPath = Request.MapPath(Request.ApplicationPath) +
-                @"Reporte.rdlc";
+                @"Report.rdlc";
             ReportDataSource rptdatasurce = new ReportDataSource("dsPersona", listado);
             rptviewer.LocalReport.DataSources.Add(rptdatasurce);
             rptviewer.SizeToReportContent = true;
