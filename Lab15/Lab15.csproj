@@ -248,6 +248,7 @@
     <Content Include="SchoolDataSet.xss">
       <DependentUpon>SchoolDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="Views\Person\Graficos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
